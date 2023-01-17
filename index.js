@@ -90,3 +90,24 @@ const modifyCards = (data) => {
   </div>`;
   }
 };
+
+const getForest = () => {
+  fetch("https://api.pexels.com/v1/search?query=forest", options)
+    .then((response) => response.json())
+    .then((forestData) => displayForest(forestData));
+};
+
+const displayForest = (forestData) => {
+  let carouselInner = document.querySelector("#carouselInner");
+  let forestArray = forestData.photos;
+  carouselInner.innerHTML = `<div class="carousel-item active"><img src="${forestArray[0].src.large}" class="d-block w-100" alt="forest picture" /></div>`;
+  for (let i = 1; i < forestArray.length; i++) {
+    carouselInner.innerHTML += `<div class="carousel-item">
+    <img src="${forestArray[i].src.large}" class="d-block w-100" alt="..." />
+  </div>`;
+  }
+};
+
+window.onload = () => {
+  getForest();
+};
