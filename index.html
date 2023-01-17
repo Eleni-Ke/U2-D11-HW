@@ -1,27 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--
-        PICTURE ALBUM EXERCISE
-
-        Starting from the current bootstrap layout, implement as many of the following features as you can:
-
-        First of all: 
-        Register on pexels to retrieve your API key: https://www.pexels.com/api/new/
-
-        the key, once acquired, needs to go into the headers of your HTTP request with a property of 
-        Your API key: 563492ad6f91700001000001bb185c4d5cc14cdf8663c54b71f46d55
-
-        {Authorization: "Bearer [563492ad6f91700001000001bb185c4d5cc14cdf8663c54b71f46d55]"}
-        
-        this should be enough for you to make your GET request successfully
-
-
-        1) When pressing on Load Images button, load the pictures from https://api.pexels.com/v1/search?query=[your-query]
-        2) When pressing on Load Seconday Images, load the pictures from https://api.pexels.com/v1/search?query=[your-secondary-query]
-        3) The Edit button should be replaced with a "Hide" button. 
-        4) When the hide button is pressed, the whole picture card should disappear.
-        5) Replace the "9 mins" string in the card template with the ID of the Image
+    <!-- 
         6) Add in the "jumbotron" a search field. Use the value of the search field to search new images and replace the existing ones.
         
         
@@ -121,6 +101,10 @@
           font-size: 3.5rem;
         }
       }
+
+      .card-img-top {
+        object-fit: cover;
+      }
     </style>
   </head>
   <body>
@@ -195,16 +179,38 @@
             This page will dynamically load pictures from the web, and display
             them in a cool way!
           </p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">Load Images</a>
-            <a href="#" class="btn btn-secondary my-2">Load Secondary Images</a>
-          </p>
+          <div>
+            <a href="#" class="btn btn-primary my-2" onclick="getImages(`dog`)"
+              >Load Dog Images</a
+            >
+            <a
+              href="#"
+              class="btn btn-secondary my-2"
+              onclick="getImages(`cat`)"
+              >Load Cat Images</a
+            >
+            <div class="input-group mb-3">
+              <a
+                href="#"
+                id="basic-addon1"
+                class="btn btn-secondary my-2 input-group-text input-group-append"
+                onclick="getImages(document.querySelector(`#searchInput`).value)"
+                >Search</a
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="searchInput"
+                placeholder="search for..."
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       <div class="album py-5 bg-light">
         <div class="container">
-          <div class="row">
+          <div class="row" id="cardRow">
             <div class="col-md-4">
               <div class="card mb-4 shadow-sm">
                 <svg
@@ -637,6 +643,7 @@
         </p>
       </div>
     </footer>
+    <script src="/index.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
