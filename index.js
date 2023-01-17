@@ -39,21 +39,20 @@ const modifyCards = (data) => {
             <button
               type="button"
               class="btn btn-sm btn-outline-secondary"
-              data-toggle="modal" data-target="#${dataArray[i].id}Modal"
+              data-toggle="modal" data-target="#id${dataArray[i].id}Modal"
             >
               View
             </button>
             <div
             class="modal fade"
-            id="${dataArray[i].id}Modal"
+            id="id${dataArray[i].id}Modal"
             tabindex="-1"
-            aria-labelledby="exampleModalLabel"
             aria-hidden="true"
             >
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="${dataArray[i].id}Label">${dataArray[i].id}</h5>
+                            <h5 class="modal-title" id="id${dataArray[i].id}Label">${dataArray[i].id}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                              </button>
@@ -64,7 +63,7 @@ const modifyCards = (data) => {
                             alt="animal picture"
                             class="card-img-top"
                             width="100%"
-                            height="225"
+                            height="100%"
                             preserveAspectRatio="xMidYMid slice"
                             />
                         </div>
