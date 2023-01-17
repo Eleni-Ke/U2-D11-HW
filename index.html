@@ -2,9 +2,6 @@
 <html lang="en">
   <head>
     <!-- 
-        6) Add in the "jumbotron" a search field. Use the value of the search field to search new images and replace the existing ones.
-        
-        
         [EXTRA]
         7) After every button is pressed, display an alert for 5 seconds the result of the operation (es.: 20 images loaded)
         8) Handle API errors gracefully, using alert components with the message inside
@@ -190,6 +187,12 @@
               >Load Cat Images</a
             >
             <div class="input-group mb-3">
+              <input
+                type="text"
+                class="my-2 form-control"
+                id="searchInput"
+                placeholder="search for..."
+              />
               <a
                 href="#"
                 id="basic-addon1"
@@ -197,12 +200,6 @@
                 onclick="getImages(document.querySelector(`#searchInput`).value)"
                 >Search</a
               >
-              <input
-                type="text"
-                class="form-control"
-                id="searchInput"
-                placeholder="search for..."
-              />
             </div>
           </div>
         </div>

@@ -31,11 +31,7 @@ const modifyCards = (data) => {
         preserveAspectRatio="xMidYMid slice"
       />
       <div class="card-body">
-        <p class="card-text">
-          This is a wider card with supporting text below as a natural
-          lead-in to additional content. This content is a little bit
-          longer.
-        </p>
+        
         <div
           class="d-flex justify-content-between align-items-center"
         >
@@ -43,9 +39,43 @@ const modifyCards = (data) => {
             <button
               type="button"
               class="btn btn-sm btn-outline-secondary"
+              data-toggle="modal" data-target="#${dataArray[i].id}Modal"
             >
               View
             </button>
+            <div
+            class="modal fade"
+            id="${dataArray[i].id}Modal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+            >
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="${dataArray[i].id}Label">${dataArray[i].id}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                             </button>
+                        </div>
+                        <div class="modal-body">
+                            <img
+                            src=${dataArray[i].src.large}
+                            alt="animal picture"
+                            class="card-img-top"
+                            width="100%"
+                            height="225"
+                            preserveAspectRatio="xMidYMid slice"
+                            />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <button
               type="button"
               class="btn btn-sm btn-outline-secondary"
